@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
+import axios from 'axios';
 
-function App() {
+import SearchForm from './Search/SearchForm';
+const BooksView = lazy(() => import('./BooksView/BooksView'));
+
+const App = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [booksData, setBooksData] = useState([]);
+
+  const onSearchClick = async () => {
+    const res = await axios.get(
+      `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&printType=books`
+    );
+    setBooksData(res.data.items);
+  };
+
+  useEffect(() => {}, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <h1 className='headline'>Find a book</h1>
+      <SearchForm
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        onSearchClick={onSearchClick}
+      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <BooksView booksData={booksData} />
+      </Suspense>
     </div>
   );
-}
+};
 
 export default App;

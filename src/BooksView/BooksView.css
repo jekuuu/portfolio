@@ -1,0 +1,12 @@
+.card-img-top {
+  width: 250px;
+  height: 340px;
+  background-size: cover;
+  background-position: top center;
+}
+
+.card {
+  align-items: center;
+  height: 350px;
+  overflow-y: scroll;
+}
