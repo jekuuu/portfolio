@@ -1,33 +1,26 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-import SearchForm from './Search/SearchForm';
-const BooksView = lazy(() => import('./BooksView/BooksView'));
+import MovieCard from './MovieCard/MovieCard';
 
 const App = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [booksData, setBooksData] = useState([]);
+  const [popularMovies, setPopularMovies] = useState([]);
 
-  const onSearchClick = async () => {
+  const getPopularMovies = async () => {
     const res = await axios.get(
-      `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&printType=books`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
     );
-    setBooksData(res.data.items);
+    setPopularMovies(res.data.results);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    getPopularMovies();
+  }, []);
 
   return (
     <div className='container'>
-      <h1 className='headline'>Find a book</h1>
-      <SearchForm
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        onSearchClick={onSearchClick}
-      />
-      <Suspense fallback={<div>Loading...</div>}>
-        <BooksView booksData={booksData} />
-      </Suspense>
+      <h1 className='headline'>Popular Movies</h1>
+      <MovieCard movieData={popularMovies} />
     </div>
   );
 };
