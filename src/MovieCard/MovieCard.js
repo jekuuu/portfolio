@@ -1,14 +1,14 @@
 import React from 'react';
-// import axios from 'axios';
+import axios from 'axios';
 
 import './MovieCard.css';
 
 const BooksView = ({ movieData }) => {
   const getPosterImage = async (poster) => {
-    // const res = await axios.get(`https://image.tmdb.org/t/p/w500${poster}`, {
-    //   headers: { 'Access-Control-Allow-Origin': '*' },
-    // });
-    // console.log(res);
+    const res = await axios.get(`https://image.tmdb.org/t/p/w500${poster}`, {
+      headers: { 'Access-Control-Allow-Origin': '*' },
+    });
+    console.log(res);
   };
 
   return (
