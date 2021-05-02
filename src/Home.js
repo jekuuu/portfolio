@@ -28,7 +28,7 @@ const Home = () => {
   };
 
   return (
-    <div className='container'>
+    <>
       <h1 className='headline'>Search for a Movie or TV Series</h1>
       {isLoading && <Loader />}
       <form onSubmit={handleOnSubmit}>
@@ -38,12 +38,15 @@ const Home = () => {
           className='form-control'
           onChange={handleTextOnChange}
         />
-        <button type='submit' className='btn btn-primary mt-3'>
+        <button
+          type='submit'
+          className='bg-blue-500 text-white font-bold py-2 px-4 rounded'
+        >
           Search
         </button>
       </form>
       <HomeCard movieData={data} mix />
-    </div>
+    </>
   );
 };
 
