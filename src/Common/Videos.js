@@ -4,7 +4,7 @@ const Videos = ({ videoDetails }) => {
   return (
     <div className='row mt-3'>
       <h5>Watch Trailers</h5>
-      {videoDetails.map((video) => (
+      {videoDetails.slice(0, 6).map((video) => (
         <div className='col-md-4'>
           <iframe
             width='420'

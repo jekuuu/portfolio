@@ -29,20 +29,25 @@ const Home = () => {
 
   return (
     <div className='container'>
-      <h1 className='headline'>Search for a Movie or TV Series</h1>
-      {isLoading && <Loader />}
-      <form onSubmit={handleOnSubmit}>
-        <input
-          type='text'
-          value={searchQuery}
-          className='form-control'
-          onChange={handleTextOnChange}
-        />
-        <button type='submit' className='btn btn-primary mt-3'>
-          Search
-        </button>
-      </form>
-      <HomeCard movieData={data} mix />
+      <div className=''>
+        <h3>Search for a Movie or TV Series</h3>
+        {isLoading && <Loader />}
+        <form onSubmit={handleOnSubmit} className='d-flex flex-column'>
+          <input
+            type='text'
+            value={searchQuery}
+            className='form-control align-items-center'
+            onChange={handleTextOnChange}
+          />
+          <button
+            type='submit'
+            className='btn btn-primary mt-3 justify-content-end'
+          >
+            Search
+          </button>
+        </form>
+        <HomeCard movieData={data} mix />
+      </div>
     </div>
   );
 };

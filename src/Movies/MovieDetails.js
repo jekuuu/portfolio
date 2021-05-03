@@ -3,11 +3,13 @@ import axios from 'axios';
 import CastPic from '../Common/CastPic';
 import Videos from '../Common/Videos';
 import Loader from '../Common/Loader';
+import Reviews from '../Common/Reviews';
 
 const MovieDetails = ({ match }) => {
   const [movieDetails, setMovieDetails] = useState([]);
   const [castDetails, setCastdetails] = useState([]);
   const [videoDetails, setVideodetails] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const getMovieDetails = async (id) => {
@@ -20,9 +22,14 @@ const MovieDetails = ({ match }) => {
     const resVideos = await axios.get(
       `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
     );
+    const reviewRes = await axios.get(
+      `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
+    );
+    console.log(reviewRes);
     setMovieDetails(res.data);
     setCastdetails(resCrew.data.cast);
     setVideodetails(resVideos.data.results);
+    setReviews(reviewRes.data.results);
     setIsLoading(false);
   };
 
@@ -57,6 +64,7 @@ const MovieDetails = ({ match }) => {
                 <CastPic castDetails={castDetails} />
               </div>
               <Videos videoDetails={videoDetails} />
+              <Reviews reviews={reviews} />
             </div>
           </div>
         )}
