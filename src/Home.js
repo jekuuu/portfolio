@@ -28,27 +28,29 @@ const Home = () => {
   };
 
   return (
-    <div className='container'>
-      <div className=''>
-        <h3>Search for a Movie or TV Series</h3>
+    <>
+      <div className='flex flex-col items-center'>
+        <h3 className='text-xl md:text-4xl mt-20 text-gray-700'>
+          Search for a Movie or TV Series
+        </h3>
         {isLoading && <Loader />}
-        <form onSubmit={handleOnSubmit} className='d-flex flex-column'>
+        <form onSubmit={handleOnSubmit} className='flex flex-col md:w-96'>
           <input
             type='text'
             value={searchQuery}
-            className='form-control align-items-center'
+            className='mt-14 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 relative bg-white  rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full'
             onChange={handleTextOnChange}
           />
           <button
             type='submit'
-            className='btn btn-primary mt-3 justify-content-end'
+            className='mt-14  rounded border-2 border-indigo-400 text-indigo-400 px-2 py-1 uppercase shadow  hover:shadow-inner hover:text-white hover:bg-indigo-400'
           >
             Search
           </button>
         </form>
-        <HomeCard movieData={data} mix />
       </div>
-    </div>
+      <HomeCard movieData={data} mix />
+    </>
   );
 };
 

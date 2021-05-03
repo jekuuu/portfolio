@@ -6,10 +6,10 @@ const HomeCard = ({ movieData }) => {
     (movie) => movie.poster_path !== null || movie.poster_path
   );
   return (
-    <div className='row'>
+    <div className='grid grid-cols-1 md:grid-cols-5 gap-5 mt-6 ml-2 mr-2'>
       {data.map((movie) => {
         return (
-          <div className='card col-md-5 offset-md-1 mt-3 col-xs-10'>
+          <div className='bg-white rounded shadow:xl border-2 transform md:hover:scale-105'>
             <Link
               to={
                 movie.media_type === 'tv'
@@ -22,6 +22,7 @@ const HomeCard = ({ movieData }) => {
               <img
                 src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
                 alt={movie.title}
+                className='md:h-full bg-cover w-full'
               />
             </Link>
           </div>
