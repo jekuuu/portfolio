@@ -13,7 +13,7 @@ const ToggleButton = ({ setTheme, colorTheme }) => {
           onChange={() => setTheme(colorTheme)}
           checked={colorTheme === 'light'}
         />
-        <div className='w-12 h-6 bg-yellow-400 rounded-full shadow-inner text-yellow-300 items-center'></div>
+        <div className='w-12 h-6 bg-yellow-400 dark:bg-gray-600 rounded-full shadow-inner text-yellow-300 items-center'></div>
         <div className='toggle__dot absolute w-6 h-6 inset-y-0 left-0 items-center'>
           {colorTheme === 'light' ? (
             <svg

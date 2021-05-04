@@ -31,14 +31,14 @@ const Home = () => {
   return (
     <>
       <div className='flex flex-col items-center'>
-        <h3 className='text-xl md:text-4xl mt-20 text-gray-700 dark:text-white'>
+        <h3 className='text-xl md:text-4xl mt-20 text-gray-700 dark:text-gray-300'>
           Search for a Movie or TV Series
         </h3>
         <form onSubmit={handleOnSubmit} className='flex flex-col md:w-96'>
           <input
             type='text'
             value={searchQuery}
-            className='mt-14 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 relative bg-white  rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full'
+            className='mt-14 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 relative bg-white dark:bg-gray-300  rounded text-sm border border-blueGray-300 outline-none focus:outline-none focus:ring w-full'
             onChange={handleTextOnChange}
           />
           <button

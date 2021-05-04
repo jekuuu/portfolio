@@ -14,12 +14,28 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className='flex justify-between bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 py-3'>
+      <nav className='flex justify-between bg-blue-500 py-3 dark:bg-gray-900'>
         <NavLink
           to='/'
-          className='text-3xl text-white pl-3 hover:text-yellow-500 font-bold'
+          className='text-2xl text-white pl-3 dark:hover:text-gray-600 hover:text-yellow-400'
         >
-          MediaDB
+          <div className='flex flex-row'>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              className='h-6 w-6 mt-1'
+              fill='none'
+              viewBox='0 0 24 24'
+              stroke='currentColor'
+            >
+              <path
+                strokeLinecap='round'
+                strokeLinejoin='round'
+                strokeWidth='2'
+                d='M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+              />
+            </svg>
+            MediaDB
+          </div>
         </NavLink>
 
         <div className='hidden md:block'>
@@ -27,7 +43,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 to='/movies'
-                className='text-white pr-6 text-xl hover:text-yellow-500'
+                className='text-white pr-6 text-xl dark:hover:text-gray-600 hover:text-yellow-400'
               >
                 Movies
               </NavLink>
@@ -35,7 +51,7 @@ const NavBar = () => {
             <li>
               <NavLink
                 to='/shows'
-                className='text-white text-xl hover:text-yellow-500'
+                className='text-white text-xl dark:hover:text-gray-600 hover:text-yellow-400'
               >
                 TV Shows
               </NavLink>
@@ -66,12 +82,12 @@ const NavBar = () => {
         </svg>
       </nav>
       {toggleMenu && (
-        <ul className=' flex flex-col bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 items-center'>
+        <ul className='flex flex-col bg-blue-500 py-3 dark:bg-gray-900 items-left'>
           <li>
             <NavLink
               to='/movies'
               onClick={handleMenuOnClick}
-              className='text-white  pr-6 text-xl hover:text-yellow-500'
+              className='text-white  pr-6 text-xl dark:hover:text-gray-600 hover:text-yellow-400'
             >
               Movies
             </NavLink>
@@ -80,12 +96,11 @@ const NavBar = () => {
             <NavLink
               to='/shows'
               onClick={handleMenuOnClick}
-              className='text-white text-xl hover:text-yellow-500'
+              className='text-white text-xl dark:hover:text-gray-600 hover:text-yellow-400'
             >
               TV Shows
             </NavLink>
           </li>
-          <li></li>
         </ul>
       )}
     </>
