@@ -10,6 +10,7 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const search = async () => {
+    setData([]);
     const res = await axios.get(
       `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&query=${searchQuery}`
     );
@@ -33,7 +34,6 @@ const Home = () => {
         <h3 className='text-xl md:text-4xl mt-20 text-gray-700 dark:text-white'>
           Search for a Movie or TV Series
         </h3>
-        {isLoading && <Loader />}
         <form onSubmit={handleOnSubmit} className='flex flex-col md:w-96'>
           <input
             type='text'
@@ -49,6 +49,7 @@ const Home = () => {
           </button>
         </form>
       </div>
+      {isLoading && <Loader />}
       <HomeCard movieData={data} mix />
     </>
   );

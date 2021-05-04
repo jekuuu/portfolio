@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './ToggleButton.css';
 
 const ToggleButton = ({ setTheme, colorTheme }) => {
@@ -9,7 +10,7 @@ const ToggleButton = ({ setTheme, colorTheme }) => {
           id='toogleA'
           type='checkbox'
           className='hidden'
-          onClick={() => setTheme(colorTheme)}
+          onChange={() => setTheme(colorTheme)}
           checked={colorTheme === 'light'}
         />
         <div className='w-12 h-6 bg-yellow-400 rounded-full shadow-inner text-yellow-300 items-center'></div>

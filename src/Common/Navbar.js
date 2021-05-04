@@ -70,6 +70,7 @@ const NavBar = () => {
           <li>
             <NavLink
               to='/movies'
+              onClick={handleMenuOnClick}
               className='text-white  pr-6 text-xl hover:text-yellow-500'
             >
               Movies
@@ -78,6 +79,7 @@ const NavBar = () => {
           <li>
             <NavLink
               to='/shows'
+              onClick={handleMenuOnClick}
               className='text-white text-xl hover:text-yellow-500'
             >
               TV Shows
