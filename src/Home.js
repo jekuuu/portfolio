@@ -30,7 +30,7 @@ const Home = () => {
   return (
     <>
       <div className='flex flex-col items-center'>
-        <h3 className='text-xl md:text-4xl mt-20 text-gray-700'>
+        <h3 className='text-xl md:text-4xl mt-20 text-gray-700 dark:text-white'>
           Search for a Movie or TV Series
         </h3>
         {isLoading && <Loader />}
