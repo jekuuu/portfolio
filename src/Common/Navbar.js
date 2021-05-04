@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import useDarkModeHook from '../Hooks/useDarkModeHook';
+import ToggleButton from './ToggleButton';
+
 const NavBar = () => {
   const [toggleMenu, setToggleMenu] = useState(false);
+  const [colorTheme, setTheme] = useDarkModeHook();
 
   const handleMenuOnClick = () => {
     setToggleMenu(!toggleMenu);
@@ -17,9 +21,10 @@ const NavBar = () => {
         >
           MovieDB
         </NavLink>
+
         <div className='hidden md:block'>
           <ul className='flex pr-6 '>
-            <li className=''>
+            <li>
               <NavLink
                 to='/movies'
                 className='text-white pr-6 text-xl hover:text-yellow-500'
@@ -27,7 +32,7 @@ const NavBar = () => {
                 Movies
               </NavLink>
             </li>
-            <li className=''>
+            <li>
               <NavLink
                 to='/shows'
                 className='text-white text-xl hover:text-yellow-500'
@@ -35,8 +40,15 @@ const NavBar = () => {
                 TV Shows
               </NavLink>
             </li>
+            <li className='ml-6 text-white rounded-full fill-white mt-1'>
+              <ToggleButton setTheme={setTheme} colorTheme={colorTheme} />
+            </li>
           </ul>
         </div>
+        <div className='items-center justify-end md:hidden '>
+          <ToggleButton setTheme={setTheme} colorTheme={colorTheme} />
+        </div>
+
         <svg
           xmlns='http://www.w3.org/2000/svg'
           fill='none'
@@ -46,16 +58,16 @@ const NavBar = () => {
           onClick={handleMenuOnClick}
         >
           <path
-            stroke-linecap='round'
-            stroke-linejoin='round'
-            stroke-width='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
             d='M4 6h16M4 12h16M4 18h16'
           />
         </svg>
       </nav>
       {toggleMenu && (
         <ul className=' flex flex-col bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 items-center'>
-          <li className=''>
+          <li>
             <NavLink
               to='/movies'
               className='text-white  pr-6 text-xl hover:text-yellow-500'
@@ -63,7 +75,7 @@ const NavBar = () => {
               Movies
             </NavLink>
           </li>
-          <li className=''>
+          <li>
             <NavLink
               to='/shows'
               className='text-white text-xl hover:text-yellow-500'
@@ -71,6 +83,7 @@ const NavBar = () => {
               TV Shows
             </NavLink>
           </li>
+          <li></li>
         </ul>
       )}
     </>

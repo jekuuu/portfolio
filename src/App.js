@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import MovieDetails from './Movies/MovieDetails';
-import NavBar from './Navbar';
 import MovieHome from './Movies/MovieHome';
 import ShowsHome from './Series/ShowsHome';
 import SeriesDetails from './Series/SeriesDetails';
+import NavBar from './Common/Navbar';
 
 const App = () => {
   return (
