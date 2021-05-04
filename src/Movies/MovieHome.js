@@ -37,13 +37,17 @@ const MovieHome = () => {
   };
 
   return (
-    <div className='container'>
-      <div className='row mt-3'>
-        <div className='col-md-6'>
-          <h2 className='headline'>Movies</h2>
-        </div>
-        <div className='col-md-2 offset-md-4'>
-          <select class='form-control' onChange={handleSelectChange}>
+    <div className='flex flex-col'>
+      <div className='flex justify-between mt-3'>
+        <h2 className='text-2xl font-semibold dark:text-white ml-3'>
+          Popular Movies
+        </h2>
+
+        <div className='mr-3 px-3 py-2 bg-white border rounded'>
+          <select
+            className='focus:outline-none focus:shadow-outline-blue focus:border-blue-300'
+            onChange={handleSelectChange}
+          >
             <option value='popular'>Popular</option>
             <option value='now_playing'>Now Playing</option>
             <option value='top_rated'>Top Rated</option>
@@ -56,6 +60,7 @@ const MovieHome = () => {
         setSelectedNumberOfPage={setSelectedNumberOfPage}
         selectedNumberOfPage={selectedNumberOfPage}
       />
+
       <MovieCard movieData={popularMovies} isMovie />
     </div>
   );

@@ -5,14 +5,15 @@ import './MovieCard.css';
 
 const MovieCard = ({ movieData, isMovie }) => {
   return (
-    <div className='row mt-3'>
+    <div className='grid grid-cols-1 md:grid-cols-5 gap-5 mt-6 ml-2 mr-2'>
       {movieData.map((movie) => {
         return (
-          <div className='card home col-md-5 offset-md-1 mt-3 col-xs-12'>
+          <div className='bg-white rounded shadow:xl border-2 transform md:hover:scale-105'>
             <Link to={isMovie ? `/movie/${movie.id}` : `/shows/${movie.id}`}>
               <img
                 src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
                 alt={movie.title}
+                className='md:h-full bg-cover w-full'
               />
             </Link>
           </div>

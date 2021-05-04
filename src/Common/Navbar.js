@@ -19,7 +19,7 @@ const NavBar = () => {
           to='/'
           className='text-3xl text-white pl-3 hover:text-yellow-500 font-bold'
         >
-          MovieDB
+          MediaDB
         </NavLink>
 
         <div className='hidden md:block'>

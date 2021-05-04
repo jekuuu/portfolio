@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+
 import Home from './Home';
 import MovieDetails from './Movies/MovieDetails';
 import MovieHome from './Movies/MovieHome';

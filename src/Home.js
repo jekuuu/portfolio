@@ -43,7 +43,7 @@ const Home = () => {
           />
           <button
             type='submit'
-            className='mt-14  rounded border-2 border-indigo-400 text-indigo-400 px-2 py-1 uppercase shadow  hover:shadow-inner hover:text-white hover:bg-indigo-400'
+            className='mt-14 rounded border-2 border-indigo-400 text-indigo-400 px-2 py-1 uppercase shadow  hover:shadow-inner hover:text-white hover:bg-indigo-400'
           >
             Search
           </button>
