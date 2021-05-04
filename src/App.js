@@ -7,6 +7,7 @@ import MovieHome from './Movies/MovieHome';
 import ShowsHome from './Series/ShowsHome';
 import SeriesDetails from './Series/SeriesDetails';
 import NavBar from './Common/Navbar';
+import Actor from './Common/Actor';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path='/shows' exact component={ShowsHome} />
         <Route path='/movie/:id' component={MovieDetails} />
         <Route path='/shows/:id' component={SeriesDetails} />
+        <Route path='/actor/:id' component={Actor} />
       </Switch>
     </BrowserRouter>
   );
