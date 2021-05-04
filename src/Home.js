@@ -14,7 +14,10 @@ const Home = () => {
     const res = await axios.get(
       `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1&query=${searchQuery}`
     );
-    setData(res.data.results);
+    const data = res.data.results.filter(
+      (data) => data.poster_path && data.poster_path !== null
+    );
+    setData(data);
     setIsLoading(false);
   };
 

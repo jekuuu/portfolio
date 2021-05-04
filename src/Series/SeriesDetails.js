@@ -31,33 +31,33 @@ const SeriesDetails = ({ match }) => {
   }, [match.params.id]);
 
   return (
-    <div className='container'>
-      <div className='row'>
-        {isLoading ? (
-          <Loader />
-        ) : (
-          <div
-            className='card col-md-12  mt-3 col-xs-10 offset-xs-2'
-            style={{ height: '100%', width: '100%' }}
-          >
-            <img
-              src={`https://image.tmdb.org/t/p/w342${seriesDetails.poster_path}`}
-              alt={seriesDetails.name}
-            />
-            <div className='card-body'>
-              <h5 className='card-title'>
-                <h5>{seriesDetails.name}</h5>
-              </h5>
-              <p className='card-text'>{seriesDetails.overview}</p>
-              <div className='row mt-3'>
-                <h5>Cast</h5>
-                <CastPic castDetails={castDetails} />
-              </div>
-              <Videos videoDetails={videoDetails} />
+    <div className='mt-5'>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className='bg-white dark:bg-gray-800 rounded shadow:xl border-2 transform dark:border-transparent mx-5 md:mx-10'>
+          <div className='grid grid-cols-1 md:grid-cols-3'>
+            <div className=''>
+              <img
+                src={`https://image.tmdb.org/t/p/w342${seriesDetails.poster_path}`}
+                alt={seriesDetails.name}
+                className='w-full md:w-96'
+              />
+            </div>
+            <div className='col-span-2'>
+              <h5 className='dark:text-white text-2xl'>{seriesDetails.name}</h5>
+              <p className='dark:text-white'>{seriesDetails.overview}</p>
+              <CastPic castDetails={castDetails} />
             </div>
           </div>
-        )}
-      </div>
+
+          <div></div>
+          <div>
+            <Videos videoDetails={videoDetails} />
+          </div>
+          {/* <Reviews reviews={reviews} /> */}
+        </div>
+      )}
     </div>
   );
 };

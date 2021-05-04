@@ -15,7 +15,10 @@ const MovieHome = () => {
     const res = await axios.get(
       `https://api.themoviedb.org/3/movie/${filter}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${selectedNumberOfPage}`
     );
-    setPopularMovies(res.data.results);
+    const data = res.data.results.filter(
+      (data) => data.poster_path && data.poster_path !== null
+    );
+    setPopularMovies(data);
     setNumberOfPage(res.data.total_pages);
   };
 
@@ -33,6 +36,7 @@ const MovieHome = () => {
   }, [selectedNumberOfPage]);
 
   const handleSelectChange = (e) => {
+    setSelectedNumberOfPage(1);
     setFilter(e.target.value);
   };
 

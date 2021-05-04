@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Videos = ({ videoDetails }) => {
+  if (videoDetails.length < 1) return null;
   return (
     <div className=''>
       <h5 className='dark:text-white text-xl mt-7 ml-3'>Watch Trailers</h5>
